@@ -5,37 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stack String Reverse</title>
     <script>
-        let arr = []
-        let curruntSize = arr.length
+      let arr = [];
+      let curruntSize = arr.length;
 
-        function push(value){
-            arr[curruntSize]=value;
-            curruntSize=+1;
+      function push(value) {
+        arr[curruntSize] = value;
+        curruntSize++;
+      }
+
+      function pop() {
+        lastIndex = arr[curruntSize-1]
+        curruntSize--;
+        arr.length = curruntSize;
+        return lastIndex;
+      }
+
+      function reverseStr(item) {
+        // array ko push krwain gy to har aik ko push krwany k liye loop chalain gy so
+        for (let i = 0; i < item.length; i++) {
+          push(item[i]);
         }
+        // so pop krwany k liye stack sy aik aik value ko bhi loop chalain gy
+        for (let i = 0; i < item.length; i++) {
+          // console.warn(pop());
+          item[i] = pop()
+          // pop()
+      }
+    }
 
-        function pop(){
-            lastRemovedItem = arr[curruntSize-1]
-            curruntSize-=1;
-            // arr.length = curruntSize;
-            return lastRemovedItem
-        }
-
-        function reverseStr(item){
-            // array ko push krwain gy to har aik ko push krwany k liye loop chalain gy so
-            for(let i=0;i<item.length;i++){
-                push(item[i])
-            }
-            // so pop krwany k liye stack sy aik aik value ko bhi loop chalain gy
-            for(let i = 0; i<item.length;i++){
-                // item[i]=pop();
-                console.warn(pop());
-            }
-        }
-
-        let str = 'Anar';
-        str = str.split('')
-        reverseStr(str)
-        console.warn(str);
+      let str = "anar";
+      str = str.split("");
+      reverseStr(str);
+      console.warn(str.join(''));
+      // console.warn(arr);
     </script>
   </head>
   <body>
